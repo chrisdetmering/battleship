@@ -1,24 +1,10 @@
 ﻿<Properties StartupConfiguration="{0FF082FE-A24F-4DCE-A7C1-154DD5664607}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="battleship/Properties/AssemblyInfo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="battleship/Program.cs">
     <Files>
-      <File FileName="battleship/Program.cs" Line="1" Column="1" />
-      <File FileName="battleship/Properties/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="battleship/Program.cs" Line="20" Column="41" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="battleship" expanded="True">
-            <Node name="battleship" expanded="True">
-              <Node name="Properties" expanded="True">
-                <Node name="AssemblyInfo.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.battleship FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.battleship PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
