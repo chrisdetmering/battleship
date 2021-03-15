@@ -2,22 +2,40 @@
 
 namespace battleship
 {
+
+    class GameBoard
+    {
+        public string[,] gameBoardArr = new string[10, 10]
+        { { " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O " },
+            { " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O " },
+            { " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O " },
+            { " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O " },
+            { " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O " },
+            { " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O " },
+            { " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O " },
+            { " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O " },
+            { " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O " },
+            { " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O " },
+        };
+    }
+
     class MainClass
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            int myInt = 10;
-            byte myByte = (byte)myInt;
-            double myDouble = (double)myByte;
-            string myString = "false";
-            myString = myInt.ToString();
-            short myShort = (short)myInt;
-            char myChar = 'x';
-            long myLong = (long)myInt;
-            decimal myDecimal = (decimal)myLong;
-            myString = myString + myInt + myByte + myDouble + myChar + myDecimal;
-            Console.WriteLine(myString);
+            GameBoard gameBoard = new GameBoard();
+            Console.Clear();
+            Console.WriteLine("Welcome to C# console Battleship.\n \n");
+            gameBoard.gameBoardArr[1, 1] = " X";
+
+            for(int i = 0; i < gameBoard.gameBoardArr.GetLength(0); i++)
+            {
+                for (int j = 0; j < gameBoard.gameBoardArr.GetLength(1); j++)
+                {
+                    Console.Write(gameBoard.gameBoardArr[i, j] + " \t");
+                }
+                Console.WriteLine("\n");
+            }
         }
     }
 }
