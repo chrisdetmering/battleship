@@ -2,8 +2,8 @@
 {
     class Player
     {
-        const int MAX_SHOTS = 10;
-        int shots = 0;
-        int hits = 0;
+        public int maxShots = 10;
+        public int shots = 0;
+        public int hits = 0;
     }
 }
