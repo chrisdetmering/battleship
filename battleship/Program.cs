@@ -11,10 +11,13 @@ namespace battleship
 
             GameBoard gameBoard = new GameBoard();
             Player player = new Player();
+            Battleship battleship = new Battleship();
             Console.Clear();
             Console.WriteLine("Welcome to C# console Battleship.\n \n");
 
             gameBoard.drawGameBoard();
+
+            battleship.RandomShipLoc();
 
             while ((player.shots < player.maxShots) && (player.hits < 3))
             {
