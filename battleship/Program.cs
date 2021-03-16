@@ -14,14 +14,7 @@ namespace battleship
             Console.Clear();
             Console.WriteLine("Welcome to C# console Battleship.\n \n");
 
-            for (int i = 0; i < gameBoard.gameBoardArr.GetLength(0); i++)
-            {
-                for (int j = 0; j < gameBoard.gameBoardArr.GetLength(1); j++)
-                {
-                    Console.Write(gameBoard.gameBoardArr[i, j] + " \t");
-                }
-                Console.WriteLine("\n \n");
-            }
+            gameBoard.drawGameBoard();
 
             while ((player.shots < player.maxShots) && (player.hits < 3))
             {
@@ -37,17 +30,12 @@ namespace battleship
                 else
                 {
 
-                    gameBoard.gameBoardArr[guessX - 1, guessY - 1] = " X ";
+                    gameBoard.gameBoardArr[guessY, guessX] = " X ";
                     Console.Clear();
                     Console.WriteLine("Welcome to C# console Battleship.\n \n");
-                    for (int i = 0; i < gameBoard.gameBoardArr.GetLength(0); i++)
-                    {
-                        for (int j = 0; j < gameBoard.gameBoardArr.GetLength(1); j++)
-                        {
-                            Console.Write(gameBoard.gameBoardArr[i, j] + " \t");
-                        }
-                        Console.WriteLine("\n \n");
-                    }
+
+                    gameBoard.drawGameBoard();
+
                     player.shots++;
                     Console.WriteLine("Shots remaining: " + (player.maxShots - player.shots));
                 }
