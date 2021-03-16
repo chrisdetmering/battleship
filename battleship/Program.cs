@@ -32,12 +32,14 @@ namespace battleship
 
                 if ((guessX < 1 || guessX > 10) || (guessY < 1 || guessY > 10))
                 {
-                    Console.WriteLine("Guess is outside range.");
+                    Console.WriteLine("Guess is outside range. Please select a number from 1-10.");
                 }
                 else
                 {
-                    gameBoard.gameBoardArr[guessX - 1, guessY - 1] = " X";
+
+                    gameBoard.gameBoardArr[guessX - 1, guessY - 1] = " X ";
                     Console.Clear();
+                    Console.WriteLine("Welcome to C# console Battleship.\n \n");
                     for (int i = 0; i < gameBoard.gameBoardArr.GetLength(0); i++)
                     {
                         for (int j = 0; j < gameBoard.gameBoardArr.GetLength(1); j++)
