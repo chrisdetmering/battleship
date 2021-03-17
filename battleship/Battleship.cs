@@ -21,7 +21,7 @@ namespace battleship
             return randomLocation;
         }
 
-        public void RandomShipLoc()
+        public void RandomShipLocation()
         {
             var shipDirectionRandomizer = random.Next(0, 2);
 

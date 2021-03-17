@@ -15,46 +15,52 @@ namespace battleship
 
             gameBoard.drawGameBoard();
 
-            battleship.RandomShipLoc();
+            battleship.RandomShipLocation();
 
             Console.WriteLine("Shots remaining: " + (player.maxShots - player.shots) + "\n\n");
 
             while ((player.shots < player.maxShots) && (player.hits < 5))
             {
                 Console.Write("Please enter X horizontal coordinate from 1-10: ");
-                int guessX = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Please enter Y vertical coordinate from 1-10: ");
-                int guessY = Convert.ToInt32(Console.ReadLine());
 
-                if ((guessX < 1 || guessX > 10) || (guessY < 1 || guessY > 10))
+                if (int.TryParse(Console.ReadLine(), out int valueX))
+                    player.guessX = valueX;
+
+
+                Console.Write("Please enter Y vertical coordinate from 1-10: ");
+                    
+                if (int.TryParse(Console.ReadLine(), out int valueY))
+                    player.guessY = valueY;
+
+                if ((player.guessX < 1 || player.guessX > 10) || (player.guessY < 1 || player.guessY > 10))
                 {
-                    Console.WriteLine("Guess is outside range. Please select a number from 1-10.");
+                    Console.WriteLine("Not a valid shot. Please select a number from 1-10.");
                 }
                 else
                 {
-                    if ((guessX == battleship.location1[0]
-                        || guessX == battleship.location2[0]
-                        || guessX == battleship.location3[0]
-                        || guessX == battleship.location4[0]
-                        || guessX == battleship.location5[0])
-                        && (guessY == battleship.location1[1]
-                        || guessY == battleship.location2[1]
-                        || guessY == battleship.location3[1]
-                        || guessY == battleship.location4[1]
-                        || guessY == battleship.location5[1]))
+                    if ((player.guessX == battleship.location1[0]
+                        || player.guessX == battleship.location2[0]
+                        || player.guessX == battleship.location3[0]
+                        || player.guessX == battleship.location4[0]
+                        || player.guessX == battleship.location5[0])
+                        && (player.guessY == battleship.location1[1]
+                        || player.guessY == battleship.location2[1]
+                        || player.guessY == battleship.location3[1]
+                        || player.guessY == battleship.location4[1]
+                        || player.guessY == battleship.location5[1]))
                     {
-                        gameBoard.gameBoardArr[guessY, guessX] = ">X<";
+                        gameBoard.gameBoardArr[player.guessY, player.guessX] = ">X<";
                         player.hits++;
                         player.shots++;
                         Console.Clear();
-                        Console.WriteLine("\t\t\t\t\t**--> HIT! <--**\n\n");
+                        Console.WriteLine("\t\t\t\t\t--> HIT! <--\n\n");
                     }
                     else
                     {
-                        gameBoard.gameBoardArr[guessY, guessX] = "> <";
+                        gameBoard.gameBoardArr[player.guessY, player.guessX] = "> <";
                         player.shots++;
                         Console.Clear();
-                        Console.WriteLine("\t\t\t\t\t00--> MISS! <--00\n\n");
+                        Console.WriteLine("\t\t\t\t\t--> MISS! <--\n\n");
                     }
                     
                     gameBoard.drawGameBoard();

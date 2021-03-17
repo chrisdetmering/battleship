@@ -1,0 +1,6 @@
+<ListOfTaskListEntry>
+  <TaskListEntry file="" description="make locations an enum" />
+  <TaskListEntry file="" description="have location displayed after gameover" />
+  <TaskListEntry file="" description="be able to restart game" />
+  <TaskListEntry file="" description="refactor entire code to accomodate enum" />
+</ListOfTaskListEntry>
