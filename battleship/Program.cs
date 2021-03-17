@@ -11,7 +11,7 @@ namespace battleship
             Player player = new Player();
             Battleship battleship = new Battleship();
             Console.Clear();
-            Console.WriteLine("\t\t\tWelcome to C# console Battleship.\n \n");
+            Console.WriteLine("\t\t\t\tWelcome to C# console Battleship.\n\n");
 
             gameBoard.drawGameBoard();
 
@@ -47,14 +47,14 @@ namespace battleship
                         player.hits++;
                         player.shots++;
                         Console.Clear();
-                        Console.WriteLine("\t\t\t\t\t--> HIT! <--\n\n");
+                        Console.WriteLine("\t\t\t\t\t**--> HIT! <--**\n\n");
                     }
                     else
                     {
                         gameBoard.gameBoardArr[guessY, guessX] = "> <";
                         player.shots++;
                         Console.Clear();
-                        Console.WriteLine("\t\t\t\t\t--> MISS! <--\n\n");
+                        Console.WriteLine("\t\t\t\t\t00--> MISS! <--00\n\n");
                     }
                     
                     gameBoard.drawGameBoard();
