@@ -5,6 +5,7 @@ namespace battleship
     class Battleship
     {
         Random random = new Random();
+        public int lives = 5;
         public int[] location1 = new int[2];
         public int[] location2 = new int[2];
         public int[] location3 = new int[2];
@@ -54,21 +55,11 @@ namespace battleship
 
             location5.SetValue(randomLocationX + shipDirectionX * 4, 0);
             location5.SetValue(randomLocationY + shipDirectionY * 4, 1);
+        }
 
-            //Console.WriteLine(shipDirectionRandomizer);
-            //Console.WriteLine($"X LOC:{randomLocationX}");
-            //Console.WriteLine($"Y LOC:{randomLocationY}");
-
-            //Console.Write(location1[0] + ", ");
-            //Console.WriteLine(location1[1]);
-            //Console.Write(location2[0] + ", ");
-            //Console.WriteLine(location2[1]);
-            //Console.Write(location3[0] + ", ");
-            //Console.WriteLine(location3[1]);
-            //Console.Write(location4[0] + ", ");
-            //Console.WriteLine(location4[1]);
-            //Console.Write(location5[0] + ", ");
-            //Console.WriteLine(location5[1]);
+        public void ResetLives()
+        {
+            lives = 5;
         }
     }
 }
