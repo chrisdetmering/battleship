@@ -8,4 +8,5 @@
         public int guessX;
         public int guessY;
     }
+
 }
