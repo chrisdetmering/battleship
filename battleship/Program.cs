@@ -102,7 +102,6 @@ namespace battleship
                         gameBoard = new GameBoard();
                         battleship.RandomShipLocation();
                         gameBoard.drawGameBoard();
-
                         Console.WriteLine("Shots remaining: " + (player.maxShots - player.shots) + "\n\n");
                     }
                     else
