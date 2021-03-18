@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{0FF082FE-A24F-4DCE-A7C1-154DD5664607}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="battleship/Battleship.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="battleship/Program.cs">
     <Files>
-      <File FileName="battleship/Program.cs" Line="20" Column="40" />
-      <File FileName="battleship/Battleship.cs" Line="14" Column="10" />
+      <File FileName="battleship/Program.cs" Line="29" Column="1" />
+      <File FileName="battleship/Battleship.cs" />
       <File FileName="battleship/GameBoard.cs" />
       <File FileName="battleship/Player.cs" />
     </Files>
@@ -11,7 +11,7 @@
         <State name="__root__">
           <Node name="battleship" expanded="True">
             <Node name="battleship" expanded="True">
-              <Node name="Battleship.cs" selected="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>

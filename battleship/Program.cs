@@ -22,7 +22,11 @@ namespace battleship
             Console.WriteLine("\nTo start press spacebar");
             var startGame = Console.ReadKey(true).KeyChar;
             var gameover = true;
-            if (startGame == ' ') gameover = false;
+
+            if (startGame == ' ')
+            {
+                gameover = false;
+            }
 
             while (!gameover)
             {
@@ -91,11 +95,12 @@ namespace battleship
                     var input = Console.ReadKey(true).KeyChar;
                     if (input == 'y' || input == 'Y')
                     {
-                        player.shots = 0;
-                        player.hits = 0;
                         gameover = false;
                         Console.Clear();
-
+                        Console.WriteLine("\t\t\t\tWelcome to C# console Battleship.\n\n");
+                        player = new Player();
+                        gameBoard = new GameBoard();
+                        battleship.RandomShipLocation();
                         gameBoard.drawGameBoard();
 
                         Console.WriteLine("Shots remaining: " + (player.maxShots - player.shots) + "\n\n");
