@@ -7,7 +7,6 @@ namespace battleship
         Random random = new Random();
 
         public int lives = 5;
-
         public int[] location1 = new int[2];
         public int[] location2 = new int[2];
         public int[] location3 = new int[2];

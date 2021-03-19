@@ -11,18 +11,7 @@ namespace battleship
             Player player = new Player();
             Battleship battleship = new Battleship();
 
-            Console.Clear();
-            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
-            Console.WriteLine("\t====----====----====----====----====----====----====----====----====");
-            Console.WriteLine("\t| .'`+~~    o_.      ~~+`'._.'`+~~        o-_  ~~+`'._.'`+~~    ., |");
-            Console.WriteLine("\t|  _o -_~~+`'._.'`+~~   ..__      ~~+`'._.'`+~~      ..     ~~+`'  |");
-            Console.WriteLine("\t|                                                                  |");
-            Console.WriteLine("\t|    ___o.o-      Welcome to C# console Battleship.    _-o--~      |");
-            Console.WriteLine("\t|                                                                  |");
-            Console.WriteLine("\t| ~~+`'._.'`+~~             ~~+`'._.'`+~~     ..o-    ~~+`'._.'`+  |");
-            Console.WriteLine("\t| _o    o_- .  ~~+`'._.'`+~~    o.       ~~+`'._.'`+~~     o._     |");
-            Console.WriteLine("\t====----====----====----====----====----====----====----====----====\n\n");
-            Console.WriteLine("\t             >  To start the game press the SPACEBAR  <");
+            gameBoard.TitleScreen();
 
             var startGame = Console.ReadKey(true).KeyChar;
             var isBattleshipSunk = true;
@@ -157,11 +146,12 @@ namespace battleship
                     }
                     else
                     {
-                        Console.Clear();
-                        Console.WriteLine("\n\n\n\n\n\t\t~~+`'._.'`+~~ Thanks for playing, goodbye ~~+`'._.'`+~~");
+                        break;
                     }
                 }
             }
+                Console.Clear();
+                Console.WriteLine("\n\n\n\n\n\t\t~~+`'._.'`+~~ Thanks for playing, goodbye ~~+`'._.'`+~~");
         }
     }
 }
