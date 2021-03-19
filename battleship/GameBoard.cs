@@ -18,6 +18,7 @@ namespace battleship
             { " 9.", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O " },
             { "10.", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O ", " O " },
         };
+
         public void drawGameBoard()
         {
             for (int i = 0; i < gameBoardArr.GetLength(0); i++)

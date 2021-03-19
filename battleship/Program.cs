@@ -12,12 +12,16 @@ namespace battleship
             Battleship battleship = new Battleship();
 
             Console.Clear();
-            Console.WriteLine("\t\t\t**************************************************");
-            Console.WriteLine("\t\t\t*                                                *");
-            Console.WriteLine("\t\t\t*        Welcome to C# console Battleship.       *");
-            Console.WriteLine("\t\t\t*                                                *");
-            Console.WriteLine("\t\t\t**************************************************\n");
-            Console.WriteLine("\t\t\t         To start the game press spacebar");
+            Console.WriteLine("====----====----====----====----====----====----====----====----====");
+            Console.WriteLine("| .'`+~~    o_.      ~~+`'._.'`+~~        o-_  ~~+`'._.'`+~~    ., |");
+            Console.WriteLine("|  _o -_~~+`'._.'`+~~   ..__      ~~+`'._.'`+~~      ..     ~~+`'  |");
+            Console.WriteLine("|                                                                  |");
+            Console.WriteLine("|    ___o.o-      Welcome to C# console Battleship.    _-o--~      |");
+            Console.WriteLine("|                                                                  |");
+            Console.WriteLine("| ~~+`'._.'`+~~             ~~+`'._.'`+~~     ..o-    ~~+`'._.'`+  |");
+            Console.WriteLine("| _o    o_- .  ~~+`'._.'`+~~    o.       ~~+`'._.'`+~~     o._     |");
+            Console.WriteLine("====----====----====----====----====----====----====----====----====\n\n");
+            Console.WriteLine("             >  To start the game press the SPACEBAR  <");
 
             var startGame = Console.ReadKey(true).KeyChar;
             var gameover = true;
@@ -52,7 +56,9 @@ namespace battleship
                 if ((player.guessX < 1 || player.guessX > 10) || (player.guessY < 1 || player.guessY > 10))
                 {
                     Console.Clear();
-                    Console.WriteLine("\t\t\tNot a valid shot. Please select a number from 1-10.\n\n");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\t~ That was not a valid target ~ Please select a number from 1-10.\n\n");
+                    Console.ResetColor();
 
                     gameBoard.drawGameBoard();
 
@@ -75,7 +81,9 @@ namespace battleship
                         if (gameBoard.gameBoardArr[player.guessY, player.guessX] == ">X<")
                         {
                             Console.Clear();
-                            Console.WriteLine("\t\t\tNot a valid shot. Please select a number from 1-10.\n\n");
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("\t~~ You already tried that one ~~ Please select a number from 1-10.\n\n");
+                            Console.ResetColor();
                         }
                         else
                         {
@@ -95,7 +103,9 @@ namespace battleship
                         if (gameBoard.gameBoardArr[player.guessY, player.guessX] == "> <")
                         {
                             Console.Clear();
-                            Console.WriteLine("\t\t\tNot a valid shot. Please select a number from 1-10.\n\n");
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("\t~~ You already tried that position ~~ Please select a number from 1-10.\n\n");
+                            Console.ResetColor();
                         }
                         else
                         {
@@ -117,7 +127,7 @@ namespace battleship
                     if (player.hits == 5)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\t\t\t\t*** ARRGG! You sunk my Battleship!! ***\n");
+                        Console.WriteLine("\t\t\t====>>>>    BATTLESHIP SUNK!   <<<<=====\n");
                         Console.ResetColor();
 
                         gameover = true;
@@ -125,7 +135,7 @@ namespace battleship
                     if (Player.MAX_SHOTS - player.shots < battleship.lives)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\t\t\t\t*** Not enough shots left! They got away! ***\n");
+                        Console.WriteLine("\t\t<<<<===   Not enough shots left! They got away!  ====>>>>\n");
                         Console.ResetColor();
 
                         gameover = true;
@@ -134,7 +144,7 @@ namespace battleship
                 }
                 if (gameover)
                 {
-                    Console.Write("Play again Y?");
+                    Console.Write("Play again Y?\n\nAny other key to exit.");
                     var input = Console.ReadKey(true).KeyChar;
                     if (input == 'y' || input == 'Y')
                     {
@@ -156,7 +166,7 @@ namespace battleship
                     else
                     {
                         Console.Clear();
-                        Console.WriteLine("Thanks for playing, goodbye.");
+                        Console.WriteLine("\n\n\n\n\n\t\t~~+`'._.'`+~~ Thanks for playing, goodbye ~~+`'._.'`+~~");
                     }
                 }
             }

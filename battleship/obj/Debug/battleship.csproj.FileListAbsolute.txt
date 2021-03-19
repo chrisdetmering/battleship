@@ -1,6 +1,5 @@
 /Users/bryankrauss/Documents/sdmm/battleship/battleship/bin/Debug/battleship.exe
 /Users/bryankrauss/Documents/sdmm/battleship/battleship/bin/Debug/battleship.pdb
-/Users/bryankrauss/Documents/sdmm/battleship/battleship/obj/Debug/battleship.csprojAssemblyReference.cache
 /Users/bryankrauss/Documents/sdmm/battleship/battleship/obj/Debug/battleship.csproj.CoreCompileInputs.cache
 /Users/bryankrauss/Documents/sdmm/battleship/battleship/obj/Debug/battleship.exe
 /Users/bryankrauss/Documents/sdmm/battleship/battleship/obj/Debug/battleship.pdb
