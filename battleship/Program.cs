@@ -7,11 +7,11 @@ namespace battleship
     {
         public static void Main(string[] args)
         {
-            GameBoard gameBoard = new GameBoard();
+            Display display = new Display();
             Player player = new Player();
             Battleship battleship = new Battleship();
 
-            gameBoard.TitleScreen();
+            display.TitleScreen();
 
             var startGame = Console.ReadKey(true).KeyChar;
             var isBattleshipSunk = true;
@@ -23,10 +23,9 @@ namespace battleship
                 Console.Clear();
                 Console.WriteLine("\n\n");
 
-                gameBoard.drawGameBoard();
+                display.GameBoard();
 
-                Console.WriteLine("Shots remaining: " + (Player.MAX_SHOTS - player.shots) + "\n");
-                Console.WriteLine("Battleship lives remaining: " + battleship.lives + "\n");
+                Console.WriteLine($"Shots remaining: {Player.MAX_SHOTS - player.shots}\n\nBattleship lives remaining: {battleship.lives}\n");
 
                 battleship.RandomShipLocation();
             }
@@ -46,8 +45,8 @@ namespace battleship
                 var isInvalidGuess =
                     ((player.guessX < 1 || player.guessX > 10)
                     || (player.guessY < 1 || player.guessY > 10))
-                    || (gameBoard.gameBoardArr[player.guessY, player.guessX] == ">X<")
-                    || (gameBoard.gameBoardArr[player.guessY, player.guessX] == "> <");
+                    || (display.gameBoard[player.guessY, player.guessX] == ">X<")
+                    || (display.gameBoard[player.guessY, player.guessX] == "> <");
 
                 if (isInvalidGuess)
                 {
@@ -56,14 +55,14 @@ namespace battleship
                     Console.WriteLine("\t~ That was not a valid target ~ Please select a number from 1-10.\n\n");
                     Console.ResetColor();
 
-                    gameBoard.drawGameBoard();
+                    display.GameBoard();
 
-                    Console.WriteLine("Shots remaining: " + (Player.MAX_SHOTS - player.shots) + "\n");
-                    Console.WriteLine("Battleship lives remaining: " + battleship.lives + "\n");
+                    Console.WriteLine($"Shots remaining: {Player.MAX_SHOTS - player.shots}\n\nBattleship lives remaining: {battleship.lives}\n");
+
                 }
                 else
                 {
-                    var isShotHit =
+                    var isTargetHit =
                       ((player.guessX == battleship.location1[0]
                         || player.guessX == battleship.location2[0]
                         || player.guessX == battleship.location3[0]
@@ -75,35 +74,31 @@ namespace battleship
                         || player.guessY == battleship.location4[1]
                         || player.guessY == battleship.location5[1]));
 
-                    if (isShotHit)
+                    if (isTargetHit)
                     {
-                        gameBoard.gameBoardArr[player.guessY, player.guessX] = ">X<";
+                        display.gameBoard[player.guessY, player.guessX] = ">X<";
                         battleship.lives--;
                         player.hits++;
                         player.shots++;
 
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\t\t\t\t\t--> HIT! <--\n\n");
+                        Console.WriteLine("\t\t\t\t   --> HIT! <--\n\n");
                         Console.ResetColor();
                     }
                     else
                     {
-
-                        gameBoard.gameBoardArr[player.guessY, player.guessX] = "> <";
+                        display.gameBoard[player.guessY, player.guessX] = "> <";
                         player.shots++;
 
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("\t\t\t\t\t--> MISS! <--\n\n");
+                        Console.WriteLine("\t\t\t\t   <-- MISS! -->\n\n");
                         Console.ResetColor();
-
                     }
 
-                    gameBoard.drawGameBoard();
-
-                    Console.WriteLine("Shots remaining: " + (Player.MAX_SHOTS - player.shots) + "\n");
-                    Console.WriteLine("Battleship lives remaining: " + battleship.lives + "\n");
+                    display.GameBoard();
+                    Console.WriteLine($"Shots remaining: {Player.MAX_SHOTS - player.shots}\n\nBattleship lives remaining: {battleship.lives}\n");
 
                     if (player.hits == 5)
                     {
@@ -113,6 +108,7 @@ namespace battleship
 
                         isBattleshipSunk = true;
                     }
+
                     if (Player.MAX_SHOTS - player.shots < battleship.lives)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -121,28 +117,28 @@ namespace battleship
 
                         isBattleshipSunk = true;
                     }
-
                 }
+
                 if (isBattleshipSunk)
                 {
-                    Console.Write("Play again Y?\n\nAny other key to exit.");
+                    Console.Write("\n\n\t\t\t\t     Play again Y?\n\n\t\t\t\tAny other key to exit.");
                     var input = Char.ToUpper(Console.ReadKey(true).KeyChar);
                     if (input == 'Y')
                     {
                         Console.Clear();
 
                         isBattleshipSunk = false;
-                        gameBoard = new GameBoard();
+                        display = new Display();
                         player.ResetPlayer();
                         battleship.ResetLives();
                         battleship.RandomShipLocation();
 
                         Console.WriteLine("\n\n");
 
-                        gameBoard.drawGameBoard();
+                        display.GameBoard();
 
-                        Console.WriteLine("Shots remaining: " + (Player.MAX_SHOTS - player.shots) + "\n");
-                        Console.WriteLine("Battleship lives remaining: " + battleship.lives + "\n");
+                        Console.WriteLine($"Shots remaining: {Player.MAX_SHOTS - player.shots}\n\nBattleship lives remaining: {battleship.lives}\n");
+
                     }
                     else
                     {
@@ -150,8 +146,8 @@ namespace battleship
                     }
                 }
             }
-                Console.Clear();
-                Console.WriteLine("\n\n\n\n\n\t\t~~+`'._.'`+~~ Thanks for playing, goodbye ~~+`'._.'`+~~");
+            Console.Clear();
+            Console.WriteLine("\n\n\n\n\n\t\t~~+`'._.'`+~~ Thanks for playing, goodbye ~~+`'._.'`+~~");
         }
     }
 }

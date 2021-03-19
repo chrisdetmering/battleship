@@ -4,7 +4,7 @@ namespace battleship
 {
     class Battleship
     {
-        Random random = new Random();
+        static Random random = new Random();
 
         public int lives = 5;
         public int[] location1 = new int[2];
