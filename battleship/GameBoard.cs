@@ -25,7 +25,9 @@ namespace battleship
             {
                 for (int j = 0; j < gameBoardArr.GetLength(1); j++)
                 {
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write(gameBoardArr[i, j] + " \t");
+                    Console.ResetColor();
                 }
                 Console.WriteLine("\n \n");
             }

@@ -12,23 +12,24 @@ namespace battleship
             Battleship battleship = new Battleship();
 
             Console.Clear();
-            Console.WriteLine("====----====----====----====----====----====----====----====----====");
-            Console.WriteLine("| .'`+~~    o_.      ~~+`'._.'`+~~        o-_  ~~+`'._.'`+~~    ., |");
-            Console.WriteLine("|  _o -_~~+`'._.'`+~~   ..__      ~~+`'._.'`+~~      ..     ~~+`'  |");
-            Console.WriteLine("|                                                                  |");
-            Console.WriteLine("|    ___o.o-      Welcome to C# console Battleship.    _-o--~      |");
-            Console.WriteLine("|                                                                  |");
-            Console.WriteLine("| ~~+`'._.'`+~~             ~~+`'._.'`+~~     ..o-    ~~+`'._.'`+  |");
-            Console.WriteLine("| _o    o_- .  ~~+`'._.'`+~~    o.       ~~+`'._.'`+~~     o._     |");
-            Console.WriteLine("====----====----====----====----====----====----====----====----====\n\n");
-            Console.WriteLine("             >  To start the game press the SPACEBAR  <");
+            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
+            Console.WriteLine("\t====----====----====----====----====----====----====----====----====");
+            Console.WriteLine("\t| .'`+~~    o_.      ~~+`'._.'`+~~        o-_  ~~+`'._.'`+~~    ., |");
+            Console.WriteLine("\t|  _o -_~~+`'._.'`+~~   ..__      ~~+`'._.'`+~~      ..     ~~+`'  |");
+            Console.WriteLine("\t|                                                                  |");
+            Console.WriteLine("\t|    ___o.o-      Welcome to C# console Battleship.    _-o--~      |");
+            Console.WriteLine("\t|                                                                  |");
+            Console.WriteLine("\t| ~~+`'._.'`+~~             ~~+`'._.'`+~~     ..o-    ~~+`'._.'`+  |");
+            Console.WriteLine("\t| _o    o_- .  ~~+`'._.'`+~~    o.       ~~+`'._.'`+~~     o._     |");
+            Console.WriteLine("\t====----====----====----====----====----====----====----====----====\n\n");
+            Console.WriteLine("\t             >  To start the game press the SPACEBAR  <");
 
             var startGame = Console.ReadKey(true).KeyChar;
-            var gameover = true;
+            var isBattleshipSunk = true;
 
             if (startGame == ' ')
             {
-                gameover = false;
+                isBattleshipSunk = false;
 
                 Console.Clear();
                 Console.WriteLine("\n\n");
@@ -41,7 +42,7 @@ namespace battleship
                 battleship.RandomShipLocation();
             }
 
-            while (!gameover)
+            while (!isBattleshipSunk)
             {
                 Console.Write("Please enter X horizontal coordinate from 1-10: ");
 
@@ -53,7 +54,13 @@ namespace battleship
                 if (int.TryParse(Console.ReadLine(), out int valueY))
                     player.guessY = valueY;
 
-                if ((player.guessX < 1 || player.guessX > 10) || (player.guessY < 1 || player.guessY > 10))
+                var isInvalidGuess =
+                    ((player.guessX < 1 || player.guessX > 10)
+                    || (player.guessY < 1 || player.guessY > 10))
+                    || (gameBoard.gameBoardArr[player.guessY, player.guessX] == ">X<")
+                    || (gameBoard.gameBoardArr[player.guessY, player.guessX] == "> <");
+
+                if (isInvalidGuess)
                 {
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -67,7 +74,8 @@ namespace battleship
                 }
                 else
                 {
-                    if ((player.guessX == battleship.location1[0]
+                    var isShotHit =
+                      ((player.guessX == battleship.location1[0]
                         || player.guessX == battleship.location2[0]
                         || player.guessX == battleship.location3[0]
                         || player.guessX == battleship.location4[0]
@@ -76,47 +84,31 @@ namespace battleship
                         || player.guessY == battleship.location2[1]
                         || player.guessY == battleship.location3[1]
                         || player.guessY == battleship.location4[1]
-                        || player.guessY == battleship.location5[1]))
-                    {
-                        if (gameBoard.gameBoardArr[player.guessY, player.guessX] == ">X<")
-                        {
-                            Console.Clear();
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("\t~~ You already tried that one ~~ Please select a number from 1-10.\n\n");
-                            Console.ResetColor();
-                        }
-                        else
-                        {
-                            gameBoard.gameBoardArr[player.guessY, player.guessX] = ">X<";
-                            battleship.lives--;
-                            player.hits++;
-                            player.shots++;
+                        || player.guessY == battleship.location5[1]));
 
-                            Console.Clear();
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("\t\t\t\t\t--> HIT! <--\n\n");
-                            Console.ResetColor();
-                        }
+                    if (isShotHit)
+                    {
+                        gameBoard.gameBoardArr[player.guessY, player.guessX] = ">X<";
+                        battleship.lives--;
+                        player.hits++;
+                        player.shots++;
+
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\t\t\t\t\t--> HIT! <--\n\n");
+                        Console.ResetColor();
                     }
                     else
                     {
-                        if (gameBoard.gameBoardArr[player.guessY, player.guessX] == "> <")
-                        {
-                            Console.Clear();
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("\t~~ You already tried that position ~~ Please select a number from 1-10.\n\n");
-                            Console.ResetColor();
-                        }
-                        else
-                        {
-                            gameBoard.gameBoardArr[player.guessY, player.guessX] = "> <";
-                            player.shots++;
 
-                            Console.Clear();
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine("\t\t\t\t\t--> MISS! <--\n\n");
-                            Console.ResetColor();
-                        }
+                        gameBoard.gameBoardArr[player.guessY, player.guessX] = "> <";
+                        player.shots++;
+
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("\t\t\t\t\t--> MISS! <--\n\n");
+                        Console.ResetColor();
+
                     }
 
                     gameBoard.drawGameBoard();
@@ -130,7 +122,7 @@ namespace battleship
                         Console.WriteLine("\t\t\t====>>>>    BATTLESHIP SUNK!   <<<<=====\n");
                         Console.ResetColor();
 
-                        gameover = true;
+                        isBattleshipSunk = true;
                     }
                     if (Player.MAX_SHOTS - player.shots < battleship.lives)
                     {
@@ -138,19 +130,19 @@ namespace battleship
                         Console.WriteLine("\t\t<<<<===   Not enough shots left! They got away!  ====>>>>\n");
                         Console.ResetColor();
 
-                        gameover = true;
+                        isBattleshipSunk = true;
                     }
 
                 }
-                if (gameover)
+                if (isBattleshipSunk)
                 {
                     Console.Write("Play again Y?\n\nAny other key to exit.");
-                    var input = Console.ReadKey(true).KeyChar;
-                    if (input == 'y' || input == 'Y')
+                    var input = Char.ToUpper(Console.ReadKey(true).KeyChar);
+                    if (input == 'Y')
                     {
                         Console.Clear();
 
-                        gameover = false;
+                        isBattleshipSunk = false;
                         gameBoard = new GameBoard();
                         player.ResetPlayer();
                         battleship.ResetLives();
@@ -171,6 +163,5 @@ namespace battleship
                 }
             }
         }
-        
     }
 }

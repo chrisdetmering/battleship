@@ -12,6 +12,8 @@
         {
             shots = 0;
             hits = 0;
+            guessX = -1;
+            guessY = -1;
         }
     }
 }
