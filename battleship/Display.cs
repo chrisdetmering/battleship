@@ -50,6 +50,20 @@ namespace battleship
             }
         }
 
+        public void ResetGameBoard()
+        {
+            for (int i = 0; i < gameBoard.GetLength(0); i++)
+            {
+                for (int j = 0; j < gameBoard.GetLength(1); j++)
+                {
+                    if (gameBoard[i, j] == ">X<" || gameBoard[i, j] == "> <")
+                    {
+                        gameBoard[i, j] = " O ";
+                    }
+                }
+            }
+        }
+
         public void TitleScreen()
         {
             Console.Clear();

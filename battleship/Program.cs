@@ -128,7 +128,7 @@ namespace battleship
                         Console.Clear();
 
                         isBattleshipSunk = false;
-                        display = new Display();
+                        display.ResetGameBoard();
                         player.ResetPlayer();
                         battleship.ResetLives();
                         battleship.RandomShipLocation();

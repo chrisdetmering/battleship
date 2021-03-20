@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{0FF082FE-A24F-4DCE-A7C1-154DD5664607}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="battleship/Battleship.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="battleship/Program.cs">
     <Files>
-      <File FileName="battleship/Program.cs" Line="131" Column="49" />
-      <File FileName="battleship/Battleship.cs" Line="20" Column="33" />
+      <File FileName="battleship/Program.cs" Line="130" Column="50" />
+      <File FileName="battleship/Battleship.cs" />
       <File FileName="battleship/Player.cs" />
       <File FileName="battleship/Display.cs" />
     </Files>

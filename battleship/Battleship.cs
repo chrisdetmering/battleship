@@ -7,15 +7,15 @@ namespace battleship
         static Random random = new Random();
 
         public int Lives { get; private set; } = 5;
+        public int ShipDirectionX { get; private set; }
+        public int ShipDirectionY { get; set; }
+        public int RandomLocationX { get; private set; }
+        public int RandomLocationY { get; private set; }
         public int[] location1 = new int[2];
         public int[] location2 = new int[2];
         public int[] location3 = new int[2];
         public int[] location4 = new int[2];
         public int[] location5 = new int[2];
-        private int shipDirectionX;
-        private int shipDirectionY;
-        private int randomLocationX;
-        private int randomLocationY;
 
         public void ResetLives()
         {
@@ -39,33 +39,33 @@ namespace battleship
 
             if (shipDirectionRandomizer == 0)
             {
-                shipDirectionX = 0;
-                shipDirectionY = 1;
-                randomLocationX = randomNumber(11);
-                randomLocationY = randomNumber(6);
+                ShipDirectionX = 0;
+                ShipDirectionY = 1;
+                RandomLocationX = randomNumber(11);
+                RandomLocationY = randomNumber(6);
             }
             else
             {
-                shipDirectionX = 1;
-                shipDirectionY = 0;
-                randomLocationX = randomNumber(6);
-                randomLocationY = randomNumber(11);
+                ShipDirectionX = 1;
+                ShipDirectionY = 0;
+                RandomLocationX = randomNumber(6);
+                RandomLocationY = randomNumber(11);
             }
 
-            location1.SetValue(randomLocationX, 0);
-            location1.SetValue(randomLocationY, 1);
+            location1.SetValue(RandomLocationX, 0);
+            location1.SetValue(RandomLocationY, 1);
 
-            location2.SetValue(randomLocationX + shipDirectionX, 0);
-            location2.SetValue(randomLocationY + shipDirectionY, 1);
+            location2.SetValue(RandomLocationX + ShipDirectionX, 0);
+            location2.SetValue(RandomLocationY + ShipDirectionY, 1);
 
-            location3.SetValue(randomLocationX + shipDirectionX * 2, 0);
-            location3.SetValue(randomLocationY + shipDirectionY * 2, 1);
+            location3.SetValue(RandomLocationX + ShipDirectionX * 2, 0);
+            location3.SetValue(RandomLocationY + ShipDirectionY * 2, 1);
 
-            location4.SetValue(randomLocationX + shipDirectionX * 3, 0);
-            location4.SetValue(randomLocationY + shipDirectionY * 3, 1);
+            location4.SetValue(RandomLocationX + ShipDirectionX * 3, 0);
+            location4.SetValue(RandomLocationY + ShipDirectionY * 3, 1);
 
-            location5.SetValue(randomLocationX + shipDirectionX * 4, 0);
-            location5.SetValue(randomLocationY + shipDirectionY * 4, 1);
+            location5.SetValue(RandomLocationX + ShipDirectionX * 4, 0);
+            location5.SetValue(RandomLocationY + ShipDirectionY * 4, 1);
         }
     }
 }
