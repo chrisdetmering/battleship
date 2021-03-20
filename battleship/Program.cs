@@ -13,7 +13,6 @@ namespace battleship
 
             display.TitleScreen();
 
-
             if (Console.ReadKey(true).KeyChar == ' ')
             {
                 battleship.IsBattleshipSunk = false;
@@ -27,6 +26,7 @@ namespace battleship
             while (!battleship.IsBattleshipSunk)
             {
                 player.ReadGuess();
+
                 if (!player.IsValidGuess(display.gameBoard))
                 {
                     Console.Clear();
@@ -35,7 +35,6 @@ namespace battleship
                     Console.ResetColor();
                     display.GameBoard();
                     Console.WriteLine($"Shots remaining: {Player.MAX_SHOTS - player.Shots}\n\nBattleship lives remaining: {battleship.Lives}\n");
-
                 }
                 else
                 {
