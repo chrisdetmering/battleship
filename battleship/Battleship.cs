@@ -6,16 +6,17 @@ namespace battleship
     {
         static Random random = new Random();
 
+        public bool IsBattleshipSunk { get; set; } = true;
         public int Lives { get; private set; } = 5;
         public int ShipDirectionX { get; private set; }
         public int ShipDirectionY { get; set; }
         public int RandomLocationX { get; private set; }
         public int RandomLocationY { get; private set; }
-        public int[] location1 = new int[2];
-        public int[] location2 = new int[2];
-        public int[] location3 = new int[2];
-        public int[] location4 = new int[2];
-        public int[] location5 = new int[2];
+        private int[] location1 = new int[2];
+        private int[] location2 = new int[2];
+        private int[] location3 = new int[2];
+        private int[] location4 = new int[2];
+        private int[] location5 = new int[2];
 
         public void ResetLives()
         {
@@ -27,29 +28,23 @@ namespace battleship
             Lives--;
         }
 
-        private int randomNumber(int max)
-        {
-            var randomLocation = random.Next(1, max);
-            return randomLocation;
-        }
-
         public void RandomShipLocation()
         {
-            var shipDirectionRandomizer = random.Next(0, 2);
+            var shipOrientationRandomizer = random.Next(0, 2);
 
-            if (shipDirectionRandomizer == 0)
+            if (shipOrientationRandomizer == 0)
             {
                 ShipDirectionX = 0;
                 ShipDirectionY = 1;
-                RandomLocationX = randomNumber(11);
-                RandomLocationY = randomNumber(6);
+                RandomLocationX = random.Next(1, 11);
+                RandomLocationY = random.Next(1, 6);
             }
             else
             {
                 ShipDirectionX = 1;
                 ShipDirectionY = 0;
-                RandomLocationX = randomNumber(6);
-                RandomLocationY = randomNumber(11);
+                RandomLocationX = random.Next(1, 6);
+                RandomLocationY = random.Next(1, 11);
             }
 
             location1.SetValue(RandomLocationX, 0);
@@ -66,6 +61,20 @@ namespace battleship
 
             location5.SetValue(RandomLocationX + ShipDirectionX * 4, 0);
             location5.SetValue(RandomLocationY + ShipDirectionY * 4, 1);
+        }
+
+        public bool IsTargetHit(int guessX, int guessY)
+        {
+            return (guessX == location1[0]
+                        || guessX == location2[0]
+                        || guessX == location3[0]
+                        || guessX == location4[0]
+                        || guessX == location5[0])
+                        && (guessY == location1[1]
+                        || guessY == location2[1]
+                        || guessY == location3[1]
+                        || guessY == location4[1]
+                        || guessY == location5[1]);
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{0FF082FE-A24F-4DCE-A7C1-154DD5664607}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="battleship/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="battleship/Battleship.cs">
     <Files>
-      <File FileName="battleship/Program.cs" Line="130" Column="50" />
-      <File FileName="battleship/Battleship.cs" />
+      <File FileName="battleship/Program.cs" Line="50" Column="1" />
+      <File FileName="battleship/Battleship.cs" Line="26" Column="1" />
       <File FileName="battleship/Player.cs" />
       <File FileName="battleship/Display.cs" />
     </Files>
@@ -11,7 +11,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/bryankrauss/Documents/sdmm/battleship/battleship/Battleship.cs" relfile="battleship/Battleship.cs" line="70" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

@@ -50,6 +50,11 @@ namespace battleship
             }
         }
 
+        public void UpdateGameBoard(int guessX, int guessY, string icon)
+        {
+            gameBoard[guessY, guessX] = icon;
+        }
+
         public void ResetGameBoard()
         {
             for (int i = 0; i < gameBoard.GetLength(0); i++)
