@@ -3,17 +3,27 @@
     class Player
     {
         public const int MAX_SHOTS = 10;
-        public int shots = 0;
-        public int hits = 0;
+        public int Shots { get; private set; }
+        public int Hits { get; private set; }
         public int guessX;
         public int guessY;
 
         public void ResetPlayer()
         {
-            shots = 0;
-            hits = 0;
+            Shots = 0;
+            Hits = 0;
             guessX = -1;
             guessY = -1;
+        }
+
+        public void Shoot()
+        {
+            Shots++;
+        }
+
+        public void HitCount()
+        {
+            Hits++;
         }
     }
 }

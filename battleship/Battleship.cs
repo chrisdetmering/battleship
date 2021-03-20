@@ -6,7 +6,7 @@ namespace battleship
     {
         static Random random = new Random();
 
-        public int lives = 5;
+        public int Lives { get; private set; } = 5;
         public int[] location1 = new int[2];
         public int[] location2 = new int[2];
         public int[] location3 = new int[2];
@@ -19,7 +19,12 @@ namespace battleship
 
         public void ResetLives()
         {
-            lives = 5;
+            Lives = 5;
+        }
+
+        public void TakeHit()
+        {
+            Lives--;
         }
 
         private int randomNumber(int max)
