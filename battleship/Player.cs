@@ -21,6 +21,7 @@ namespace battleship
         public void Shoot()
         {
             Shots++;
+
         }
 
         public void HitCount()

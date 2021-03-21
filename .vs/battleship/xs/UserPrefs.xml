@@ -1,19 +1,18 @@
 ﻿<Properties StartupConfiguration="{0FF082FE-A24F-4DCE-A7C1-154DD5664607}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="battleship/Battleship.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="README.md">
     <Files>
-      <File FileName="battleship/Program.cs" Line="50" Column="1" />
-      <File FileName="battleship/Battleship.cs" Line="26" Column="1" />
-      <File FileName="battleship/Player.cs" />
-      <File FileName="battleship/Display.cs" />
+      <File FileName="battleship/Program.cs" Line="13" Column="1" />
+      <File FileName="battleship/Battleship.cs" Line="20" Column="1" />
+      <File FileName="battleship/Player.cs" Line="13" Column="34" />
+      <File FileName="battleship/Display.cs" Line="104" Column="47" />
+      <File FileName="README.md" Line="12" Column="82" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.battleship PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/bryankrauss/Documents/sdmm/battleship/battleship/Battleship.cs" relfile="battleship/Battleship.cs" line="70" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

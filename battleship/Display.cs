@@ -43,8 +43,8 @@ namespace battleship
                         Console.Write(gameBoard[i, j] + " \t");
                         Console.ResetColor();
                     }
-                    else 
-                    Console.Write(gameBoard[i, j] + " \t");
+                    else
+                        Console.Write(gameBoard[i, j] + " \t");
                 }
                 Console.WriteLine("\n \n");
             }
@@ -69,7 +69,7 @@ namespace battleship
             }
         }
 
-        public void TitleScreen()
+        public void TitleStart()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -92,6 +92,17 @@ namespace battleship
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("\t                      Any other key will exit");
             Console.ResetColor();
+        }
+
+        public void TitleEnd()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.Write("\n\n\n\n\n\t\t~~+`'._.'`+~~ ");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write("Thanks for playing, goodbye");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.Write("  ~~+`'._.'`+~~ ");
+
         }
     }
 }

@@ -9,7 +9,7 @@ namespace battleship
         public bool IsBattleshipSunk { get; set; } = true;
         public int Lives { get; private set; } = 5;
         public int ShipDirectionX { get; private set; }
-        public int ShipDirectionY { get; set; }
+        public int ShipDirectionY { get; private set; }
         public int RandomLocationX { get; private set; }
         public int RandomLocationY { get; private set; }
         private int[] location1 = new int[2];

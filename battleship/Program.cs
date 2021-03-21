@@ -11,7 +11,7 @@ namespace battleship
             Player player = new Player();
             Battleship battleship = new Battleship();
 
-            display.TitleScreen();
+            display.TitleStart();
 
             if (Console.ReadKey(true).KeyChar == ' ')
             {
@@ -103,7 +103,7 @@ namespace battleship
                 }
             }
             Console.Clear();
-            Console.WriteLine("\n\n\n\n\n\t\t~~+`'._.'`+~~ Thanks for playing, goodbye ~~+`'._.'`+~~");
+            display.TitleEnd();
         }
     }
 }
