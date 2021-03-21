@@ -6,7 +6,7 @@ namespace battleship
     {
         static Random random = new Random();
 
-        public bool IsBattleshipSunk { get; set; } = true;
+        public bool IsBattleshipSunk { get; private set; } = true;
         public int Lives { get; private set; } = 5;
         public int ShipDirectionX { get; private set; }
         public int ShipDirectionY { get; private set; }
