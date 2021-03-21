@@ -15,7 +15,7 @@ namespace battleship
 
             if (Console.ReadKey(true).KeyChar == ' ')
             {
-                battleship.IsBattleshipSunk = false;
+                battleship.SetIsBattleshipSunk();
                 Console.Clear();
                 Console.WriteLine("\n\n");
                 display.GameBoard();
@@ -67,7 +67,7 @@ namespace battleship
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("\t\t\t====>>>>    BATTLESHIP SUNK!   <<<<=====\n");
                         Console.ResetColor();
-                        battleship.IsBattleshipSunk = true;
+                        battleship.SetIsBattleshipSunk();
                     }
 
                     if (Player.MAX_SHOTS - player.Shots < battleship.Lives)
@@ -75,7 +75,7 @@ namespace battleship
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("\t\t<<<<===   Not enough shots left! They got away!  ====>>>>\n");
                         Console.ResetColor();
-                        battleship.IsBattleshipSunk = true;
+                        battleship.SetIsBattleshipSunk();
                     }
                 }
 
@@ -86,7 +86,7 @@ namespace battleship
                     if (input == 'Y')
                     {
                         Console.Clear();
-                        battleship.IsBattleshipSunk = false;
+                        battleship.SetIsBattleshipSunk(); 
                         display.ResetGameBoard();
                         player.ResetPlayer();
                         battleship.ResetLives();

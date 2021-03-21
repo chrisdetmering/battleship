@@ -76,5 +76,10 @@ namespace battleship
                         || guessY == location4[1]
                         || guessY == location5[1]);
         }
+
+        public bool SetIsBattleshipSunk()
+        {
+            return IsBattleshipSunk = !IsBattleshipSunk;
+        }
     }
 }
