@@ -28,20 +28,17 @@ namespace battleship
                     if (gameBoard[i, j] == "> <")
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write(gameBoard[i, j] + " \t");
-                        Console.ResetColor();
+                        DisplayPiece(i, j);
                     }
                     else if (gameBoard[i, j] == ">X<")
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write(gameBoard[i, j] + " \t");
-                        Console.ResetColor();
+                        DisplayPiece(i, j);
                     }
                     else if (gameBoard[i, j] == " O ")
                     {
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
-                        Console.Write(gameBoard[i, j] + " \t");
-                        Console.ResetColor();
+                        DisplayPiece(i, j);
                     }
                     else
                         Console.Write(gameBoard[i, j] + " \t");
@@ -49,6 +46,11 @@ namespace battleship
                 Console.WriteLine("\n \n");
             }
         }
+
+
+       
+
+
 
         public void UpdateGameBoard(int guessX, int guessY, string icon)
         {
@@ -94,6 +96,74 @@ namespace battleship
             Console.ResetColor();
         }
 
+
+
+        public void BattleShipSunk(Player player, Battleship battleship)
+        {
+            Console.Clear();
+            Console.WriteLine("\n\n");
+            GameBoard();
+            Console.WriteLine($"Shots remaining: {Player.MAX_SHOTS - player.Shots}\n\nBattleship lives remaining: {battleship.Lives}\n");
+        }
+
+
+
+        public void NotValidGuess(Player player, Battleship battleship)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\t~ That was not a valid target ~ Please select a number from 1-10.\n\n");
+            Console.ResetColor();
+            GameBoard();
+            Console.WriteLine($"Shots remaining: {Player.MAX_SHOTS - player.Shots}\n\nBattleship lives remaining: {battleship.Lives}\n");
+        }
+
+
+        public void Hit()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\t\t\t\t   --> HIT! <--\n\n");
+            Console.ResetColor();
+
+        }
+
+
+        public void Miss()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\t\t\t\t   <-- MISS! -->\n\n");
+            Console.ResetColor();
+        }
+
+
+        public void BattleShipSunk()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\t\t\t====>>>>    BATTLESHIP SUNK!   <<<<=====\n");
+            Console.ResetColor();
+        }
+
+        public void NotEnoughShots()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\t\t<<<<===   Not enough shots left! They got away!  ====>>>>\n");
+            Console.ResetColor();
+        }
+
+
+        public void ScoreBoard(Player player, Battleship battleship)
+        {
+            Console.WriteLine($"Shots remaining: {Player.MAX_SHOTS - player.Shots}\n\nBattleship lives remaining: {battleship.Lives}\n");
+        }
+
+
+        public void PlayAgain()
+        {
+            Console.Write("\n\n\t\t\t\t     Play again Y?\n\n\t\t\t\tAny other key to exit.");
+        }
+
         public void TitleEnd()
         {
             Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -104,5 +174,17 @@ namespace battleship
             Console.Write("  ~~+`'._.'`+~~ ");
 
         }
+
+
+
+        private void DisplayPiece(int i, int j)
+        {
+            Console.Write(gameBoard[i, j] + " \t");
+            Console.ResetColor();
+        }
+
+
+
+
     }
 }
