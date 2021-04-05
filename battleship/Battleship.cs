@@ -4,7 +4,7 @@ namespace battleship
 {
     class Battleship
     {
-        static Random random = new Random();
+        static readonly Random random = new Random();
 
         public bool IsBattleshipSunk { get; private set; } = true;
         public int Lives { get; private set; } = 5;

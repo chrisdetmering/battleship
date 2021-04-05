@@ -4,7 +4,7 @@ namespace battleship
 {
     class Player
     {
-        public const int MAX_SHOTS = 10;
+        public const int MaxShots = 10;
         public int Shots { get; private set; }
         public int Hits { get; private set; }
         public int GuessX { get; private set; }
